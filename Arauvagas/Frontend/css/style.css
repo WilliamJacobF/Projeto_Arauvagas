@@ -1,0 +1,66 @@
+body {
+  background-color: #f5f7fa;
+  color: #212529;
+}
+
+/* Navbar */
+.navbar {
+  padding: 15px 0;
+}
+
+/* Títulos */
+h1 {
+  color: #212529;
+}
+
+h3 {
+  font-weight: 600;
+}
+
+/* Cards de vagas */
+.card-vaga {
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 20px;
+  height: 100%;
+  transition: 0.2s;
+}
+
+.card-vaga:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.card-vaga h5 {
+  font-weight: 700;
+  color: #0d6efd;
+}
+
+.card-vaga p {
+  margin-bottom: 8px;
+}
+
+/* Formulário */
+.cadastro-section {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+}
+
+/* Mensagens */
+.mensagem {
+  padding: 12px;
+  border-radius: 6px;
+}
+
+.mensagem-sucesso {
+  background-color: #d1e7dd;
+  color: #0f5132;
+}
+
+.mensagem-erro {
+  background-color: #f8d7da;
+  color: #842029;
+}
