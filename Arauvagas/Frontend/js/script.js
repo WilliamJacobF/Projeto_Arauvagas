@@ -1,6 +1,5 @@
 const API_URL = "http://127.0.0.1:8000/api/vagas";
 
-// Elementos HTML
 const listaVagas = document.getElementById("listaVagas");
 const mensagemVagas = document.getElementById("mensagemVagas");
 
@@ -10,10 +9,6 @@ const btnLimpar = document.getElementById("btnLimpar");
 
 const formCadastro = document.getElementById("formCadastro");
 const mensagemCadastro = document.getElementById("mensagemCadastro");
-
-// ==========================================
-// 1. LISTAR E BUSCAR VAGAS
-// ==========================================
 
 async function listarVagas(titulo = "") {
   listaVagas.replaceChildren();
@@ -46,23 +41,18 @@ async function listarVagas(titulo = "") {
       const coluna = document.createElement("div");
       coluna.className = "col-md-6 col-lg-4";
 
-      // Criando card
       const card = document.createElement("div");
       card.className = "card-vaga";
 
-      // Título
       const tituloVaga = document.createElement("h5");
       tituloVaga.textContent = vaga.titulo;
 
-      // Empresa
       const empresa = document.createElement("p");
       empresa.textContent = `Empresa: ${vaga.empresa}`;
 
-      // Localização
       const localizacao = document.createElement("p");
       localizacao.textContent = `Localização: ${vaga.localizacao}`;
 
-      // Salário
       const salario = document.createElement("p");
 
       salario.textContent =
@@ -72,12 +62,10 @@ async function listarVagas(titulo = "") {
             })}`
           : "Salário não informado";
 
-      // Descrição
       const descricao = document.createElement("p");
       descricao.className = "text-muted mt-3";
       descricao.textContent = vaga.descricao;
 
-      // Adicionando elementos ao card
       card.append(tituloVaga, empresa, localizacao, salario, descricao);
 
       coluna.appendChild(card);
@@ -92,10 +80,6 @@ async function listarVagas(titulo = "") {
   }
 }
 
-// ==========================================
-// 2. EVENTO DE BUSCA
-// ==========================================
-
 formBusca.addEventListener("submit", function (event) {
   event.preventDefault();
 
@@ -104,24 +88,15 @@ formBusca.addEventListener("submit", function (event) {
   listarVagas(titulo);
 });
 
-// ==========================================
-// 3. LIMPAR PESQUISA
-// ==========================================
-
 btnLimpar.addEventListener("click", function () {
   tituloBusca.value = "";
 
   listarVagas();
 });
 
-// ==========================================
-// 4. CADASTRAR VAGA
-// ==========================================
-
 formCadastro.addEventListener("submit", async function (event) {
   event.preventDefault();
 
-  // Capturando os dados do formulário
   const vaga = {
     titulo: document.getElementById("titulo").value,
     empresa: document.getElementById("empresa").value,
@@ -131,7 +106,6 @@ formCadastro.addEventListener("submit", async function (event) {
   };
 
   try {
-    // Enviando dados para a API
     const response = await fetch(API_URL, {
       method: "POST",
 
